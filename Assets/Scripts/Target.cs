@@ -38,16 +38,27 @@ public class Target : MonoBehaviour
         }
         else
         {
+            if (!gameObject.CompareTag("Bad"))
+            {
+                gameManager.mistakes++;
+            }
             Destroy(gameObject);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.tag == "Slicer")
+        if(gameManager.isGameActive)
         {
-            gameManager.UpdateScore(pointValue);
-            Destroy(gameObject);
-            Instantiate(explosion, transform.position, explosion.transform.rotation);
+            if (other.tag == "Slicer")
+            {
+                gameManager.UpdateScore(pointValue);
+                Destroy(gameObject);
+                Instantiate(explosion, transform.position, explosion.transform.rotation);
+                if (gameObject.CompareTag("Bad"))
+                {
+                    gameManager.mistakes++;
+                }
+            }
         }
     }
     Vector3 RandomForce()

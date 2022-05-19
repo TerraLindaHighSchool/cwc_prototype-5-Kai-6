@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Slicer
+  - Bad
   layers:
   - Default
   - TransparentFX
