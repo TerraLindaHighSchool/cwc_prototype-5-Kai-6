@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         switch(difficulty)
         {
             case 1:
-            mistake3.SetActive(true);
+                mistake3.SetActive(true);
                 break;
             case 2:
                 mistake2.SetActive(true);
